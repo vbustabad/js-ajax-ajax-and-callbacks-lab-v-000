@@ -41,7 +41,7 @@ function commitsData(data) {
 
 function showCommits(el) {
   const owner = el.dataset.owner
-  const repository = el.dataset.repository
+  const repo = el.dataset.repo
 
   $.get(`https:\/\/api.github.com\/repos\/${owner}\/${repository}\/commits/`, function(data) {
     $('#details').html(commitsData(data))
