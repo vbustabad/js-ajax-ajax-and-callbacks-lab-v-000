@@ -43,7 +43,7 @@ function showCommits(el) {
   const owner = el.dataset.owner
   const repo = el.dataset.repo
 
-  $.get(`https:\/\/api.github.com\/repos\/${owner}\/${repository}\/commits/`, function(data) {
+  $.get(`https:\/\/api.github.com\/repos\/${owner}\/${repo}\/commits/`, function(data) {
     $('#details').html(commitsData(data))
   }).fail(function(error) {
       displayError();
