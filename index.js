@@ -30,11 +30,10 @@ function commitsData(data) {
   const commitList =
     data
      .map(c => {
-        return
-            `<h2>SHA: ${c.sha}</h2> +
-            <p>Author: ${c.author}</p> +
-            <p>Author Login: ${c.author.login}</p> +
-            <img src="${c.author.avatar_url}" alt="Avatar Image">`;
+        return `<h2>SHA: ${c.sha}</h2> +
+        <p>Author: ${c.author}</p> +
+        <p>Author Login: ${c.author.login}</p> +
+        <img src="${c.author.avatar_url}" alt="Avatar Image">`;
       })
   document.getElementById('details').innerHTML = commitList;
 };
