@@ -30,20 +30,19 @@ function commitsData(data) {
   const commitList =
     data
      .map(c => {
-        return
-            `<h2>SHA: ${c.sha}</h2> +
-            <p>Author: ${c.author}</p> +
-            <p>Author Login: ${c.author.login}</p> +
-            <img src="${c.author.avatar_url}" alt="Avatar Image">`;
+        return `<h2>SHA: ${c.sha}</h2> +
+        <p>Author: ${c.author}</p> +
+        <p>Author Login: ${c.author.login}</p> +
+        <img src="${c.author.avatar_url}" alt="Avatar Image">`;
       })
   document.getElementById('details').innerHTML = commitList;
 };
 
 function showCommits(el) {
   const owner = el.dataset.owner
-  const repository = el.dataset.repository
+  const repo = el.dataset.repository
 
-  $.get(`https:\/\/api.github.com\/repos\/${owner}\/${repository}\/commits/`, function(data) {
+  $.get(`https:\/\/api.github.com\/repos\/${owner}\/${repo}\/commits/`, function(data) {
     $('#details').html(commitsData(data))
   }).fail(function(error) {
       displayError();
